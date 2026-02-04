@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.first {
+    background-color: brown;
+    width: 100vw;
+    height: 80vh;
+
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+}
+
+
+.second {
+    background-color: yellow;
+    width: 80vw;
+    height: 60vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.third {
+    background-color: green;
+    width: 60vw;
+    height: 40vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

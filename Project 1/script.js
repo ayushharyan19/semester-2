@@ -19,7 +19,6 @@ const API_KEY = "16416a2822a04067a0042906262301";
       }
 
       function formatDateParts(localtimeStr) {
-        // WeatherAPI returns "YYYY-MM-DD HH:MM"
         const dt = new Date(localtimeStr.replace(" ", "T"));
         const optionsTime = {
           hour: "2-digit",
@@ -30,7 +29,7 @@ const API_KEY = "16416a2822a04067a0042906262301";
         const dayStr = dt.toLocaleDateString("en-GB", { weekday: "long" });
         const dateStr = dt
           .toLocaleDateString("en-GB")
-          .replace(/\//g, "."); // DD.MM.YYYY
+          .replace(/\//g, ".");
 
         return { timeStr, dayStr, dateStr };
       }
@@ -102,5 +101,4 @@ const API_KEY = "16416a2822a04067a0042906262301";
         if (e.key === "Enter") handleSearch();
       });
 
-      // initial example
       fetchWeather("London");
