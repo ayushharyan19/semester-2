@@ -27,8 +27,8 @@
         justify-content: center;
       }
       .outer-box {
-        height: 70vh;
-        width: 25vw;
+        height: 500px;
+        width: 300px;
         background-color: rgb(255, 255, 255);
         display: flex;
         border: 2px solid black;
@@ -43,11 +43,12 @@
         width: 60px;
         background-color: rgb(255, 255, 255);
         display: flex;
-        /* border-radius: 15px; */
         background-image: url("./logo.png");
         background-size: 70%;
         background-position: center;
         background-repeat: no-repeat;
+        position: absolute;
+        cursor: pointer;
       }
     </style>
   </head>
@@ -63,9 +64,17 @@
       let score = 0;
 
       function ClickBoxGame() {
-        const handleClick = () => {
+        const handleClick = (event) => {
           score++;
-          document.querySelector("#score").textContent = `Score: ${score}`;
+          document.querySelector("#score h3").textContent = `Score: ${score}`;
+          const box = event.target;
+
+          const randomX = Math.random() * (300 - 60);
+          const randomY = Math.random() * (500 - 60);
+         
+
+          box.style.left = randomX + "px";
+          box.style.top = randomY + "px";
         };
 
         return (
