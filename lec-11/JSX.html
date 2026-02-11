@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: silver;
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+      }
+      .outer-box {
+        height: 70vh;
+        width: 25vw;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        border: 2px solid black;
+        position: relative;
+        border-radius: 15px;
+      }
+      .external-box {
+        margin: 7px;
+      }
+      .red-box {
+        height: 60px;
+        width: 60px;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+        /* border-radius: 15px; */
+        background-image: url("./logo.png");
+        background-size: 70%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      //transpiler
+      //select that node
+      const rootEle = document.querySelector("#root");
+      //create element
+
+      let score = 0;
+
+      function ClickBoxGame() {
+        const handleClick = () => {
+          score++;
+          document.querySelector("#score").textContent = `Score: ${score}`;
+        };
+
+        return (
+          <div className="outer-box">
+            <div className="external-box">
+              <div className="score-box" id="score">
+                <h3>Score: 0</h3>
+              </div>
+              <div onClick={handleClick} className="red-box"></div>
+            </div>
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(rootEle);
+      root.render(<ClickBoxGame />);
+    </script>
+  </body>
+</html>
