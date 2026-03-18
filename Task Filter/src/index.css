@@ -1,0 +1,8 @@
+/* Clear global styles to avoid any Vite defaults from interfering with our immersive UI */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+}
