@@ -1,35 +1,38 @@
-import {useState} from "react";
+import { useState } from "react";
 
-function App(){
+function App() {
   const fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"];
   const [query, setQuery] = useState("");
-  const filteredFruits = fruits.filter((fruit)=>
-  fruit.toLowerCase().includes(query.toLowerCase()));
+
+  const filteredFruits = fruits.filter((fruit) =>
+    fruit.toLowerCase().includes(query.toLowerCase())
+  );
 
   let content;
-  
-  if(filteredFruits.length===0){
-    content = <p>Fruit not found.</p>
-  }else{
+
+  if (filteredFruits.length === 0) {
+    content = <p>Fruit not found.</p>;
+  } else {
     content = (
       <ul>
-        {filteredFruits.map((name)=>(
-          <li>{name}</li>
+        {filteredFruits.map((name) => (
+          <li key={name}>{name}</li>
         ))}
       </ul>
     );
   }
 
-  return(
+  return (
     <div>
-    <p>Search Fruits</p>
-    <input
-    type = "text"
-    value = {query}
-    onChange={(e)=> setQuery(e.target.value)}
-    placeholder="Search... 💋"
-    />
-    {content}
+      <p>Search Fruits</p>
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search..."
+        aria-label="Search fruits"
+      />
+      {content}
     </div>
   )
 }
